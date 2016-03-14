@@ -6,7 +6,7 @@ $(document).ready(function() {
     var rows = $('#row').val();
     var columns = $('#column').val();
     var newDeck = createDeck(rows, columns);
-    if(createDeck === false) {
+    if(newDeck === false) {
       $('#row').val('');
       $('#column').val('');
       $('#error').append('<h3>Please enter a smaller set of numbers</h3>');
@@ -18,7 +18,7 @@ $(document).ready(function() {
         }
       }
     }
-    
+
 
   });
 });
