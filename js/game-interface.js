@@ -3,6 +3,7 @@ var createDeck = require('./../js/cards.js').createDeck;
 $(document).ready(function() {
   $('#sizeSelect').submit(function(event) {
     event.preventDefault();
+    $("#field").empty();
     var rows = $('#row').val();
     var columns = $('#column').val();
     var newDeck = createDeck(rows, columns);
@@ -18,6 +19,11 @@ $(document).ready(function() {
         }
       }
     }
+
+    $('.back').click(function(event) {
+      $(this).hide();
+      $(event.target).next().show();
+    });
 
 
   });
