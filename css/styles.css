@@ -1,0 +1,12 @@
+.face {
+  display: none;
+}
+
+.hideme {
+  display: none;
+}
+
+.btn-default {
+  font-size: 52px;
+  margin: 5px;
+}

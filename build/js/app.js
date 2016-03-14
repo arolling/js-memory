@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 function Card(x, y, face) {
   this.x = x;
   this.y = y;
@@ -47,3 +48,25 @@ exports.createDeck = function(rows, columns) {
   return deck;
 
 };
+
+},{}],2:[function(require,module,exports){
+var createDeck = require('./../js/cards.js').createDeck;
+
+$(document).ready(function() {
+  $('#sizeSelect').submit(function(event) {
+    event.preventDefault();
+    var rows = $('#row').val();
+    var columns = $('#column').val();
+    var newDeck = createDeck(rows, columns);
+    for(var i = 0; i < newDeck.length ; i++) {
+      $('#field').append('<button type="button" class="btn btn-default btn-lg" id="' + i + '"><span class="back glyphicon ' + newDeck[i].back + '"></span><span class="face glyphicon ' + newDeck[i].face + '"></span></button>');
+
+
+      if((i + 1) % columns === 0) {
+        $('#field').append('<br>');
+      }
+    }
+  });
+});
+
+},{"./../js/cards.js":1}]},{},[2]);
